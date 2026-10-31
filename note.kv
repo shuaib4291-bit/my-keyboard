@@ -1,0 +1,34 @@
+<NoteApp>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 5
+    editor: editor
+    list_layout: list_layout
+
+    BoxLayout:
+        size_hint_y: 0.1
+        spacing: 5
+        Button:
+            text: 'নতুন'
+            on_press: root.new_note()
+        Button:
+            text: 'সংরক্ষণ'
+            on_press: root.save_note()
+        Button:
+            text: 'মুছুন'
+            on_press: root.delete_note()
+
+    ScrollView:
+        size_hint_y: 0.3
+        GridLayout:
+            id: list_layout
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 2
+
+    TextInput:
+        id: editor
+        multiline: True
+        font_size: '16sp'
+        hint_text: 'এখানে নোট লিখুন...'
